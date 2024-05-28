@@ -1,3 +1,5 @@
+import { TopMenu } from "@/components/ui/top-menu/TopMenu";
+
 export default function ShopLayout({
   children,
 }: {
@@ -5,7 +7,8 @@ export default function ShopLayout({
 }) {
   return (
     <main className="">
+      <TopMenu />
       {children}
     </main>
-  )
+  );
 }
