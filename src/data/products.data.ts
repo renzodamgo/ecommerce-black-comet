@@ -5,8 +5,10 @@ export const productsData: ProductType[] = [
     category: "Toys",
     price: 25.0,
     image: "/assets/weasel_climb.png",
-    description: "Interactive climbing toy for pets",
+    description:
+      "Figura de un hurón trepando de la Colección MOUSIN, impresa en 3D con resina tipo ABS de alta calidad. Estas miniaturas de plástico muy detalladas están imprimadas previamente con imprimación Acrílicos Vallejo. Se requiere poco o ningún ensamblaje. Imprimado y listo para pintar. Algunas miniaturas incluyen partes translúcidas. Altura aproximada: 96 mm. Contenido: 1 miniatura Abominable Yeti, 1 base redonda (75 mm).",
     collection: "MOUSIN",
+    height: 96,
   },
   {
     id: 2,
@@ -14,8 +16,10 @@ export const productsData: ProductType[] = [
     category: "Toys",
     price: 25.0,
     image: "/assets/weasel_run.png",
-    description: "Weasel run toy for cats",
+    description:
+      "Figura de un hurón corriendo de la Colección MOUSIN, impresa en 3D con resina tipo ABS de alta calidad. Durante millones de años han sobrevivido escondidos en el legendario Mundo Perdido. Sin embargo, su intensa actividad volcánica amenaza con hacerlos desaparecer. Únete a la partida de rescate, reúne dinosaurios en tu terreno y libéralos en entornos seguros para salvarlos de la ¡Extinción!",
     collection: "MOUSIN",
+    height: 80,
   },
   {
     id: 3,
@@ -23,8 +27,10 @@ export const productsData: ProductType[] = [
     category: "Toys",
     price: 25.0,
     image: "/assets/weasel_stand.png",
-    description: "Durable stand for Weasel toys",
+    description:
+      "Figura de un hurón sobre un soporte de la Colección MOUSIN, impresa en 3D con resina tipo ABS de alta calidad. Durante millones de años han sobrevivido escondidos en el legendario Mundo Perdido. Sin embargo, su intensa actividad volcánica amenaza con hacerlos desaparecer. Únete a la partida de rescate, reúne dinosaurios en tu terreno y libéralos en entornos seguros para salvarlos de la ¡Extinción!",
     collection: "MOUSIN",
+    height: 80,
   },
   {
     id: 4,
@@ -32,8 +38,10 @@ export const productsData: ProductType[] = [
     category: "Toys",
     price: 25.0,
     image: "/assets/mousin_messenger.png",
-    description: "Fun messenger-themed toy for rodents",
+    description:
+      "Figura temática de un roedor mensajero de la Colección MOUSIN, impresa en 3D con resina tipo ABS de alta calidad. Durante millones de años han sobrevivido escondidos en el legendario Mundo Perdido. Sin embargo, su intensa actividad volcánica amenaza con hacerlos desaparecer. Únete a la partida de rescate, reúne dinosaurios en tu terreno y libéralos en entornos seguros para salvarlos de la ¡Extinción!",
     collection: "MOUSIN",
+    height: 80,
   },
   {
     id: 5,
@@ -41,8 +49,10 @@ export const productsData: ProductType[] = [
     category: "Toys",
     price: 25.0,
     image: "/assets/mousin_arco.png",
-    description: "Arch-shaped toy for playing and resting",
+    description:
+      "Figura de una estructura de juego en forma de arco de la Colección MOUSIN, impresa en 3D con resina tipo ABS de alta calidad. Durante millones de años han sobrevivido escondidos en el legendario Mundo Perdido. Sin embargo, su intensa actividad volcánica amenaza con hacerlos desaparecer. Únete a la partida de rescate, reúne dinosaurios en tu terreno y libéralos en entornos seguros para salvarlos de la ¡Extinción!",
     collection: "MOUSIN",
+    height: 80,
   },
   {
     id: 6,
@@ -50,8 +60,10 @@ export const productsData: ProductType[] = [
     category: "Toys",
     price: 25.0,
     image: "/assets/mousin_stand.png",
-    description: "Stand for various Mousin toys",
+    description:
+      "Soporte para figuras de la Colección MOUSIN, impreso en 3D con resina tipo ABS de alta calidad. Durante millones de años han sobrevivido escondidos en el legendario Mundo Perdido. Sin embargo, su intensa actividad volcánica amenaza con hacerlos desaparecer. Únete a la partida de rescate, reúne dinosaurios en tu terreno y libéralos en entornos seguros para salvarlos de la ¡Extinción!",
     collection: "MOUSIN",
+    height: 80,
   },
   {
     id: 7,
@@ -59,8 +71,21 @@ export const productsData: ProductType[] = [
     category: "Toys",
     price: 25.0,
     image: "/assets/mousin_spear.png",
-    description: "Spear-like toy for enhanced play",
+    description:
+      "Figura de una lanza de la Colección MOUSIN, impresa en 3D con resina tipo ABS de alta calidad. Durante millones de años han sobrevivido escondidos en el legendario Mundo Perdido. Sin embargo, su intensa actividad volcánica amenaza con hacerlos desaparecer. Únete a la partida de rescate, reúne dinosaurios en tu terreno y libéralos en entornos seguros para salvarlos de la ¡Extinción!",
     collection: "MOUSIN",
+    height: 80,
+  },
+  {
+    id: 8,
+    name: "Mousin Shield",
+    category: "Toys",
+    price: 25.0,
+    image: "/assets/mousin_shield.png",
+    description:
+      "Figura de un escudo protector de la Colección MOUSIN, impresa en 3D con resina tipo ABS de alta calidad. Estas miniaturas de plástico muy detalladas están imprimadas previamente con imprimación Acrílicos Vallejo. Se requiere poco o ningún ensamblaje. Imprimado y listo para pintar. Algunas miniaturas incluyen partes translúcidas. Altura aproximada: 96 mm. Contenido: 1 miniatura Abominable Yeti, 1 base redonda (75 mm).",
+    collection: "MOUSIN",
+    height: 96,
   },
   // {
   //   id: 8,
@@ -71,15 +96,6 @@ export const productsData: ProductType[] = [
   //   description: "Collection of five different Mousin toys",
   //   collection: "MOUSIN",
   // },
-  {
-    id: 8,
-    name: "Mousin Shield",
-    category: "Toys",
-    price: 25.0,
-    image: "/assets/mousin_shield.png",
-    description: "Protective shield toy for active play",
-    collection: "MOUSIN",
-  },
 ];
 
 export type ProductType = {
@@ -90,4 +106,5 @@ export type ProductType = {
   image: string;
   description: string;
   collection: string;
+  height: number;
 };
