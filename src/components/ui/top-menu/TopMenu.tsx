@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/navigation-menu";
 
 export const TopMenu = () => {
+  const cartItems = 5;
   return (
     <div>
       <nav className="flex px-6 sm:px-14 justify-between items-center w-full pt-2 pb-4 mx-auto max-w-[1200px]">
@@ -62,6 +63,17 @@ export const TopMenu = () => {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
+            {cartItems > 0 && (
+              <NavigationMenuItem>
+                <div className="relative">
+                  <span className="absolute text-xs rounded-full bg-blue-600 -top-2 -right-2 px-1 font-sans">
+                    {cartItems}
+                  </span>
+
+                  <ShoppingCartIcon width={24} height={24} className="mb-1" />
+                </div>
+              </NavigationMenuItem>
+            )}
             {/* <NavigationMenuItem>
               <ShoppingCartIcon width={24} height={24} className="mb-1" />
             </NavigationMenuItem> */}
