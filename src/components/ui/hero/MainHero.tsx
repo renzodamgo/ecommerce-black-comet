@@ -19,7 +19,7 @@ export const MainHero = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-lg w-full h-[450px] md:h-[400px] shadow-2xl shadow-gray-900">
+    <div className="relative overflow-hidden rounded-lg w-full h-[450px] md:h-[700px] shadow-2xl shadow-gray-900">
       <div className="absolute md:w-1/3 top-0 md:top-1/2 md:-translate-y-1/2 left-0 z-30 py-8 px-8 md:px-10 ">
         <h1 className="text-2xl font-bold uppercase">
           Nueva Colección MOUSIN warriors!
