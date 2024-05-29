@@ -27,7 +27,7 @@ export const ProductCard = ({ product }: Props) => {
             <h2>{product.name}</h2>
             <p>S/{product.price.toFixed(2)}</p>
           </div>
-          <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4">
+          <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm">
             {product.description}
           </p>
           <Button className="w-full mt-auto">
