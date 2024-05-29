@@ -11,7 +11,7 @@ type Props = {
 
 export const ProductCard = ({ product }: Props) => {
   return (
-    <Link href={`/products/${product.id}`} passHref>
+    <Link href={`/product/${product.id}`} passHref>
       <div className="product-card rounded-2xl border border-white overflow-hidden flex flex-col h-[440px] transition duration-300 ease-in-out transform hover:scale-[102%]">
         <div className="flex-grow overflow-hidden h-[350px] bg-black">
           <Image
