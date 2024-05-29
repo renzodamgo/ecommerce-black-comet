@@ -1,5 +1,3 @@
-export const ChackOutPage = () => {
+export default function CheckOutPage() {
   return <div>ChackOutPage</div>;
-};
-
-export default ChackOutPage;
+}

@@ -1,5 +1,3 @@
-export const OrdersPage = () => {
+export default function OrdersPage() {
   return <div>OrdersPage</div>;
-};
-
-export default OrdersPage;
+}

@@ -1,5 +1,3 @@
-import React from "react";
-
-export const EmptyPage = () => {
+export default function EmptyPage() {
   return <div>EmptyPage</div>;
-};
+}
