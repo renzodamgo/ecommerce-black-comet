@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ProductType } from "@/data/products.data";
-import { ShoppingBagIcon } from "lucide-react";
+import { EyeIcon, ShoppingBagIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -30,14 +30,11 @@ export const ProductCard = ({ product }: Props) => {
           <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm">
             {product.description}
           </p>
-          <Button className="w-full mt-auto mb-2" variant={"secondary"}>
-            <ShoppingBagIcon className="mr-2" height={20} width={20} />
-            Agregar al carrito
+          <Button className="w-full mt-auto mb-4" variant={"secondary"}>
+            <EyeIcon className="mr-2" height={20} width={20} />
+            Ver Producto
           </Button>
-          <Button className="w-full mt-auto mb-2" variant={"outline"}>
-            <ShoppingBagIcon className="mr-2" height={20} width={20} />
-            Agregar al carrito
-          </Button>
+
           <Button className="w-full mt-auto">
             <ShoppingBagIcon className="mr-2" height={20} width={20} />
             Agregar al carrito
