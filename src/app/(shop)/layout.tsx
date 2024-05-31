@@ -9,12 +9,14 @@ export default function ShopLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="">
+    <div className="flex flex-col min-h-screen min-w-[100vw] justify-start">
       <TextBar />
       <TopMenu />
-      {children}
-      <InfoFooter />
+      <main className="">
+        {children}
+        <InfoFooter />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
