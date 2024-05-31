@@ -109,8 +109,14 @@ export default function ProductPage({ params }: Props) {
                   </Button>
                   <a
                     href={`https://wa.me/51922360504?text=${encodeURI(
-                      "Hola 👋 Me interesa este producto: \ndsdsa"
-                    )}}`}
+                      "Hola! Me interesa este producto: \n" +
+                        productData?.name +
+                        " - S/." +
+                        productData?.price.toFixed(2) +
+                        "\n" +
+                        "https://www.blackcomet3d.com/product/" +
+                        productData?.id
+                    )}`}
                     target="_blank"
                   >
                     <Button className="mt-4  w-full">
