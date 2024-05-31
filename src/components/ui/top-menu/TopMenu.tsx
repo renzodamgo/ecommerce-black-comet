@@ -29,7 +29,7 @@ export const TopMenu = () => {
               className={`${logoFont.className} antialiased font-semibold text-2xl uppercase flex mt-2`}
             >
               <Image
-                className="ml-1 invert"
+                className=" invert"
                 src={"/imgs/blackcomettext.png"}
                 alt="Black comet"
                 height={60}

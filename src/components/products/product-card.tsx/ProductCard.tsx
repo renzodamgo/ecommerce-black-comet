@@ -30,6 +30,14 @@ export const ProductCard = ({ product }: Props) => {
           <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm">
             {product.description}
           </p>
+          <Button className="w-full mt-auto mb-2" variant={"secondary"}>
+            <ShoppingBagIcon className="mr-2" height={20} width={20} />
+            Agregar al carrito
+          </Button>
+          <Button className="w-full mt-auto mb-2" variant={"outline"}>
+            <ShoppingBagIcon className="mr-2" height={20} width={20} />
+            Agregar al carrito
+          </Button>
           <Button className="w-full mt-auto">
             <ShoppingBagIcon className="mr-2" height={20} width={20} />
             Agregar al carrito

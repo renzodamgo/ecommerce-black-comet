@@ -1,3 +1,5 @@
+import { Footer } from "@/components/ui/footer/footer";
+import { TextBar } from "@/components/ui/text-bar/text-bar";
 import { TopMenu } from "@/components/ui/top-menu/TopMenu";
 
 export default function ShopLayout({
@@ -7,8 +9,10 @@ export default function ShopLayout({
 }) {
   return (
     <main className="">
+      <TextBar />
       <TopMenu />
       {children}
+      <Footer />
     </main>
   );
 }

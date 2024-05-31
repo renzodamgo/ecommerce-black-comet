@@ -70,10 +70,21 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        glow: {
+          "0%, 100%": {
+            boxShadow:
+              "0 0 5px rgba(255, 255, 255, 0.1), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 15px rgba(182, 255, 255, 0.4)",
+          },
+          "50%": {
+            boxShadow:
+              "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(182, 255, 255, 0.5)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        glow: "glow 4s ease-in-out infinite",
       },
     },
   },

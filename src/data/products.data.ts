@@ -67,7 +67,7 @@ export const productsData: ProductType[] = [
   },
   {
     id: 7,
-    name: "Mousin Spear",
+    name: "Mousin Spear 2",
     category: "Toys",
     price: 25.0,
     image: "/assets/mousin_spear.png",
