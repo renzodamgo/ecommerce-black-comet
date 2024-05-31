@@ -9,9 +9,9 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Black Comet | Figuritas 3D de resina de alta calidad",
+  title: "Black Comet | Miniaturas de resina de alta calidad",
   description:
-    "Black Comet - Tienda online especializada en figuritas 3D de resina de alta calidad. Descubre nuestra colección única de héroes, dragones, caballeros y más. Ideal para aficionados a D&D y Warhammer. Envíos a todo el mundo. Compra ahora y lleva la magia de las figuras 3D a tu hogar.",
+    "Tienda online especializada en figuritas de resina de alta calidad. Descubre nuestra colección única de héroes, dragones, caballeros y más. Ideal para aficionados a D&D y Warhammer. Envíos a todo el mundo. Compra ahora y lleva la magia de las figuras 3D a tu hogar.",
 };
 
 export default function RootLayout({
