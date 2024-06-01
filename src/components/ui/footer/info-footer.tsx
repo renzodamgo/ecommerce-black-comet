@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { logoFont } from "@/config/fonts";
 import { InstagramIcon, MailIcon } from "lucide-react";
+import Link from "next/link";
 
 export const InfoFooter = () => {
   return (
-    <section id="contact-information" className="bg-slate-950">
+    <section id="contactanos" className="bg-slate-950">
       <div className="px-6 md:px-14 md:pb-14 py-6 text-secondary-foreground mx-auto max-w-[1200px] grid md:grid-cols-2">
         <div>
           <Image
@@ -47,30 +48,20 @@ export const InfoFooter = () => {
           <div>
             <h3 className={`${logoFont.className} text-xl mt-6`}>Links</h3>
             <div className="grid py-2 gap-2">
-              <a
-                className="hover:underline"
-                href="https://blackcomet3d.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Nosotros
-              </a>
-              <a
-                className="hover:underline"
-                href="https://blackcomet3d.com"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link className="hover:underline" href="/products">
                 Productos
-              </a>
-              <a
+              </Link>
+              <Link className="hover:underline" href="/about">
+                Nosotros
+              </Link>
+              {/* <a
                 className="hover:underline"
                 href="https://blackcomet3d.com"
                 target="_blank"
                 rel="noreferrer"
               >
                 Catálogo
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

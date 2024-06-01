@@ -1,3 +1,4 @@
+import { Sidebar } from "@/components/products/sidebar/sidebar";
 import { Footer } from "@/components/ui/footer/footer";
 import { InfoFooter } from "@/components/ui/footer/info-footer";
 import { TextBar } from "@/components/ui/text-bar/text-bar";
@@ -10,6 +11,7 @@ export default function ShopLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen min-w-[100vw] justify-start">
+      <Sidebar />
       <TextBar />
       <TopMenu />
       <main className="">

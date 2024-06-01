@@ -1,10 +1,8 @@
 "use client";
 import { logoFont, titleFont } from "@/config/fonts";
-import { ShoppingCartIcon } from "lucide-react";
+import { Menu, MenuSquare, ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { Button } from "../button";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -12,8 +10,10 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import useSidebarStore from "@/store/sidebar.store";
 
 export const TopMenu = () => {
+  const { isOpen, toggle } = useSidebarStore();
   const cartItems = 5;
   return (
     <div>
@@ -70,31 +70,17 @@ export const TopMenu = () => {
                 </div>
               </NavigationMenuItem>
             )}
-            {/* <NavigationMenuItem>
-              <ShoppingCartIcon width={24} height={24} className="mb-1" />
-            </NavigationMenuItem> */}
           </NavigationMenuList>
         </NavigationMenu>
+        <div className="flex gap-4 md:hidden pt-8">
+          <Link className="" href="">
+            <ShoppingCartIcon width={32} height={32} className="mb-1" />
+          </Link>
+          <button className="" onClick={toggle}>
+            <Menu width={32} height={32} className="mb-1" />
+          </button>
+        </div>
       </nav>
     </div>
   );
 };
-
-{
-  /* <Link className="pt-2" href={"/"}>
-  <Button>Productos</Button>
-</Link>
-<Link className="pt-2" href={"/"}>
-  Colecciones
-</Link>
-<Link className="pt-2" href={"/"}>
-  Nosotros
-</Link>
-
-<Link className="pt-2" href={"/"}>
-  Contáctanos
-</Link>
-<Link className="pt-1" href={"/"}>
-  <ShoppingCartIcon width={24} height={24} />
-</Link> */
-}
