@@ -1,4 +1,4 @@
-import { productsData } from "@/data/products.data";
+import { productsData, ProductType } from "@/data/products.data";
 import { notFound } from "next/navigation";
 import {
   Breadcrumb,
@@ -18,7 +18,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { encode } from "querystring";
+import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
 
 interface Props {
   params: {
@@ -29,6 +29,25 @@ export default function ProductPage({ params }: Props) {
   const { slug } = params;
   const productData = productsData.find(
     (product) => product.id === Number(slug)
+  );
+  const getRandomProducts = (
+    productsData: ProductType[],
+    numberOfProducts: number
+  ) => {
+    // Shuffle the array using Fisher-Yates algorithm
+    for (let i = productsData.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [productsData[i], productsData[j]] = [productsData[j], productsData[i]];
+    }
+
+    // Return the first 'numberOfProducts' items from the shuffled array
+    return productsData.slice(0, numberOfProducts);
+  };
+
+  // Usage: Get 4 random products
+  const randomProducts = getRandomProducts(
+    productsData.filter((product) => product.id !== Number(slug)),
+    6
   );
   if (!productData) notFound();
   return (
@@ -165,6 +184,7 @@ export default function ProductPage({ params }: Props) {
           </div>
         </div>
       </section>
+      <CarouselProducts products={randomProducts} />
     </div>
   );
 }

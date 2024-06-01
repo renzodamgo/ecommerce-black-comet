@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      maskImage: {
+        fade: "linear-gradient(to right, transparent, black 25%, black 75%, transparent)",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
@@ -88,7 +91,10 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwind-gradient-mask-image"),
+  ],
 } satisfies Config;
 
 export default config;
