@@ -9,16 +9,34 @@ type AddToCartButtonProps = {
   id: number;
   name: string;
   price: number;
+  variant?:
+    | "secondary"
+    | "link"
+    | "default"
+    | "destructive"
+    | "outline"
+    | "ghost"
+    | null
+    | undefined;
 };
 
-export const AddToCartButton = ({ id, name, price }: AddToCartButtonProps) => {
+export const AddToCartButton = ({
+  id,
+  name,
+  price,
+  variant = "default",
+}: AddToCartButtonProps) => {
   const { addItem } = useCartStore();
   const handleAddItem = () => {
     addItem({ id: id, name: name, price: price, quantity: 1 });
     toast.success(`${name} agregado al carrito`);
   };
   return (
-    <Button className="w-full mt-auto" onClick={handleAddItem}>
+    <Button
+      variant={variant}
+      className="w-full mt-auto"
+      onClick={handleAddItem}
+    >
       <ShoppingBagIcon className="mr-2" height={20} width={20} />
       Agregar al carrito
     </Button>

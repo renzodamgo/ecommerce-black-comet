@@ -34,6 +34,20 @@ import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
 
 const CartPage = () => {
   const { items, addItem, removeItem, removeOneItem } = useCartStore();
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=51924523178&text=";
+  const handleCheckoutMessage = () => {
+    const itemsMessage = items.map(
+      (i) =>
+        `${i.name} x ${i.quantity} = S/${(i.price * i.quantity).toFixed(2)}`
+    );
+    const total = items
+      .map((i) => i.price * i.quantity)
+      .reduce((a, b) => a + b, 0);
+    const message = `Hola, estoy interesado en los siguientes productos:\n${itemsMessage.join(
+      "\n"
+    )} \nTotal: S/${total} \n¿Podrían ayudarme con el proceso de compra?`;
+    return `${whatsappLink}${encodeURIComponent(message)}`;
+  };
 
   const data = productsData.slice(0, 4);
   return (
@@ -85,7 +99,10 @@ const CartPage = () => {
                 items.map((i) => (
                   <TableRow key={i.id}>
                     <TableCell className="font-medium">
-                      <Link className="hover:underline" href="/">
+                      <Link
+                        className="hover:underline"
+                        href={`/product/${i.id}`}
+                      >
                         {i.name}
                       </Link>
                     </TableCell>
@@ -143,9 +160,11 @@ const CartPage = () => {
               </Button>
             </Link>
             {items.length !== 0 && (
-              <Button className="mt-4 w-full md:w-60">
-                <CheckCircle2Icon className="mr-2" /> Proceder al pago
-              </Button>
+              <a href={handleCheckoutMessage()}>
+                <Button className="mt-4 w-full md:w-60">
+                  <CheckCircle2Icon className="mr-2" /> Proceder al pago
+                </Button>
+              </a>
             )}
           </div>
         </div>

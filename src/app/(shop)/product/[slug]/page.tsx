@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
+import { AddToCartButton } from "@/components/ui/cart-buttons/add-to-cart-btn";
 
 interface Props {
   params: {
@@ -122,10 +123,14 @@ export default function ProductPage({ params }: Props) {
                   S/{productData?.price.toFixed(2)}
                 </p>
                 <div className="md:grid grid-cols-2 gap-8">
-                  <Button variant={"secondary"} className="mt-4 w-full">
-                    <ShoppingCartIcon width={24} height={24} className="mr-2" />
-                    Agregar al carrito
-                  </Button>
+                  <div className="mt-4">
+                    <AddToCartButton
+                      id={productData.id}
+                      name={`${productData.name} (${productData.height}mm)`}
+                      price={productData.price}
+                      variant="secondary"
+                    />
+                  </div>
                   <a
                     href={`https://api.whatsapp.com/send/?phone=51922360504&text=${encodeURI(
                       "Hola! 👋 Me interesa este producto: \n" +
