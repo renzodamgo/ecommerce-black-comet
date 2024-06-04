@@ -1,4 +1,3 @@
-import { productsData, ProductType } from "@/data/products.data";
 import { notFound } from "next/navigation";
 import {
   Breadcrumb,
@@ -11,7 +10,7 @@ import {
 import { Phone, ShoppingCartIcon, Slash } from "lucide-react";
 import { logoFont } from "@/config/fonts";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
-import configPromise from "@payload-config";
+import configPromise from '@payload-config'
 import Image from "next/image";
 import {
   Accordion,
@@ -22,7 +21,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
 import { AddToCartButton } from "@/components/ui/cart-buttons/add-to-cart-btn";
-import { getPayload } from "payload";
 import { Collection, Media, Product } from "@/payload-types";
 
 interface Props {
@@ -30,13 +28,10 @@ interface Props {
     slug: string;
   };
 }
-export default async function ProductPage({ params }: Props) {
+
+const fetchPayloadData = async (slug: string) => {
   const payload = await getPayloadHMR({ config: configPromise });
 
-  const { slug } = params;
-  const products = await payload.find({
-    collection: "products",
-  });
   const res = await payload.find({
     collection: "products",
     where: {
@@ -45,28 +40,40 @@ export default async function ProductPage({ params }: Props) {
       },
     },
   });
+
   const product = res.docs[0];
+
+  const products = await payload.find({
+    collection: "products",
+  });
 
   const getRandomProducts = (
     productsData: Product[],
     numberOfProducts: number
   ) => {
-    // Shuffle the array using Fisher-Yates algorithm
     for (let i = productsData.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [productsData[i], productsData[j]] = [productsData[j], productsData[i]];
     }
 
-    // Return the first 'numberOfProducts' items from the shuffled array
     return productsData.slice(0, numberOfProducts);
   };
 
-  // Usage: Get 4 random products
   const randomProducts = getRandomProducts(
     products.docs.filter((p) => p.id !== product.id),
-    6
+    4
   );
+
+  return { product, randomProducts };
+};
+
+export default async function ProductPage({ params }: Props) {
+  const { slug } = params;
+
+  const { product, randomProducts } = await fetchPayloadData(slug);
+
   if (!product) notFound();
+
   return (
     <div>
       <section
@@ -132,9 +139,6 @@ export default async function ProductPage({ params }: Props) {
                 </h2>
               </div>
               <div className="pt-4 md:pt-2">
-                {/* <h3 className={`${logoFont.className} text-xl font-bold`}>
-                  Precio
-                </h3> */}
                 <p className={`${logoFont.className} pt-2 text-3xl`}>
                   S/{product.price.toFixed(2)}
                 </p>
@@ -205,7 +209,20 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </section>
-      {/* <CarouselProducts products={randomProducts} title="Te puede interesar" /> */}
+      <CarouselProducts products={randomProducts} title="Te puede interesar" />
     </div>
   );
 }
+
+export async function generateStaticParams() {
+  const payload = await getPayloadHMR({ config: configPromise });
+  const products = await payload.find({
+    collection: "products",
+  });
+
+  return products.docs.map((product: Product) => ({
+    slug: product.slug,
+  }));
+}
+
+export const revalidate = 60; // Revalidate every 60 seconds

@@ -17,11 +17,11 @@ export const ProductCard = ({ product }: Props) => {
       <div className="flex-grow overflow-hidden h-[350px] bg-black">
         <Link href={`/product/${product.slug}`}>
           <Image
-            className="object-cover w-[55%] md:w-[85%] mx-auto h-full object-center md:object-top rounded-2xl shadow-inner max-w-[190px]"
+            className="  mx-auto h-full object-cover  object-center rounded-2xl shadow-inner "
             src={(product.image as Media)?.url || ""}
             alt={product.name}
             width={400}
-            height={300}
+            height={400}
           />
         </Link>
       </div>
@@ -30,7 +30,7 @@ export const ProductCard = ({ product }: Props) => {
           <h2>{product.name}</h2>
           <p>S/{product.price.toFixed(2)}</p>
         </div>
-        <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm">
+        <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm min-h-10">
           {product.description}
         </p>
         <Link href={`/product/${product.id}`}>
