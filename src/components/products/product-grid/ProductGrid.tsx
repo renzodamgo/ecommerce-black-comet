@@ -10,7 +10,6 @@ export const ProductGrid = async () => {
     collection: "products",
     depth: 1,
   });
-  // console.log(data.docs);
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:grid-cols-4 pb-8 md:pb-12">
       {data.docs.map((product) => (
@@ -18,11 +17,8 @@ export const ProductGrid = async () => {
           <ProductCard product={product} />
         </div>
       ))}
-      {/* {products.map((product) => (
-        <div key={product.id}>
-          <ProductCard product={product} />
-        </div>
-      ))} */}
     </div>
   );
 };
+
+export const revalidate = 60;

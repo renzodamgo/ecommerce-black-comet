@@ -10,7 +10,7 @@ import {
 import { Phone, ShoppingCartIcon, Slash } from "lucide-react";
 import { logoFont } from "@/config/fonts";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
-import configPromise from '@payload-config'
+import configPromise from "@payload-config";
 import Image from "next/image";
 import {
   Accordion,
@@ -148,6 +148,7 @@ export default async function ProductPage({ params }: Props) {
                       id={product.id}
                       name={`${product.name} (${product.height}mm)`}
                       price={product.price}
+                      slug={product.slug || ""}
                       variant="secondary"
                     />
                   </div>

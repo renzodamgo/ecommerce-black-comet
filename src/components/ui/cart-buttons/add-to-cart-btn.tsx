@@ -9,6 +9,7 @@ type AddToCartButtonProps = {
   id: string;
   name: string;
   price: number;
+  slug: string;
   variant?:
     | "secondary"
     | "link"
@@ -24,11 +25,12 @@ export const AddToCartButton = ({
   id,
   name,
   price,
+  slug,
   variant = "default",
 }: AddToCartButtonProps) => {
   const { addItem } = useCartStore();
   const handleAddItem = () => {
-    addItem({ id: id, name: name, price: price, quantity: 1 });
+    addItem({ id: id, name: name, price: price, quantity: 1, slug: slug });
     toast.success(`${name} agregado al carrito`);
   };
   return (

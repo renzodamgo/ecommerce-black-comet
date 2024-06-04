@@ -6,6 +6,7 @@ type itemCart = {
   name: string;
   price: number;
   quantity: number;
+  slug: string;
 };
 
 type cartStore = {

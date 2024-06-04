@@ -101,7 +101,7 @@ const CartPage = () => {
                     <TableCell className="font-medium">
                       <Link
                         className="hover:underline"
-                        href={`/product/${i.id}`}
+                        href={`/product/${i.slug}`}
                       >
                         {i.name}
                       </Link>
@@ -123,6 +123,7 @@ const CartPage = () => {
                               name: i.name,
                               price: i.price,
                               quantity: 1,
+                              slug: i.slug,
                             })
                           }
                         >

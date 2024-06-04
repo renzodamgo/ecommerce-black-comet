@@ -44,6 +44,7 @@ export const ProductCard = ({ product }: Props) => {
           id={product.id}
           name={`${product.name} (${product.height}mm)`}
           price={product.price}
+          slug={product.slug || ""}
         />
       </div>
     </div>
