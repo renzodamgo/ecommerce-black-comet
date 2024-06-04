@@ -1,13 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { AddToCartButton } from "@/components/ui/cart-buttons/add-to-cart-btn";
-import { ProductType } from "@/data/products.data";
+import { ProductType } from "@/interfaces/products.type";
+import { Media, Product } from "@/payload-types";
 import { EyeIcon, ShoppingBagIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type Props = {
-  product: ProductType;
+  product: Product;
 };
 
 export const ProductCard = ({ product }: Props) => {
@@ -17,7 +18,7 @@ export const ProductCard = ({ product }: Props) => {
         <Link href={`/product/${product.id}`}>
           <Image
             className="object-cover w-[55%] md:w-[85%] mx-auto h-full object-center md:object-top rounded-2xl shadow-inner max-w-[190px]"
-            src={product.image}
+            src={(product.image as Media)?.url || ""}
             alt={product.name}
             width={400}
             height={300}

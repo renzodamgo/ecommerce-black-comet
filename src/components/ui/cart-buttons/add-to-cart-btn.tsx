@@ -6,7 +6,7 @@ import useCartStore from "@/store/cart.store";
 import { toast } from "sonner";
 
 type AddToCartButtonProps = {
-  id: number;
+  id: string;
   name: string;
   price: number;
   variant?:

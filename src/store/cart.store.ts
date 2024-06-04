@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 type itemCart = {
-  id: number;
+  id: string;
   name: string;
   price: number;
   quantity: number;
@@ -11,8 +11,8 @@ type itemCart = {
 type cartStore = {
   items: itemCart[];
   addItem: (item: itemCart) => void;
-  removeItem: (id: number) => void;
-  removeOneItem: (id: number) => void;
+  removeItem: (id: string) => void;
+  removeOneItem: (id: string) => void;
 };
 
 const useCartStore = create<cartStore>()(
