@@ -15,7 +15,7 @@ export const ProductCard = ({ product }: Props) => {
   return (
     <div className="product-card rounded-2xl border border-white overflow-hidden flex flex-col h-[440px] transition duration-300 ease-in-out transform hover:scale-[102%]">
       <div className="flex-grow overflow-hidden h-[350px] bg-black">
-        <Link href={`/product/${product.id}`}>
+        <Link href={`/product/${product.slug}`}>
           <Image
             className="object-cover w-[55%] md:w-[85%] mx-auto h-full object-center md:object-top rounded-2xl shadow-inner max-w-[190px]"
             src={(product.image as Media)?.url || ""}

@@ -42,7 +42,7 @@ export default function ProductsPage() {
         >
           Nuestro Catálogo
         </h1>
-        <ProductGrid products={products} />
+        <ProductGrid  />
       </div>
     </div>
   );

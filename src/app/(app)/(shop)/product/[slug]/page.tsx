@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Phone, ShoppingCartIcon, Slash } from "lucide-react";
 import { logoFont } from "@/config/fonts";
+import { getPayloadHMR } from "@payloadcms/next/utilities";
+import configPromise from "@payload-config";
 import Image from "next/image";
 import {
   Accordion,
@@ -20,19 +22,33 @@ import {
 import { Button } from "@/components/ui/button";
 import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
 import { AddToCartButton } from "@/components/ui/cart-buttons/add-to-cart-btn";
+import { getPayload } from "payload";
+import { Collection, Media, Product } from "@/payload-types";
 
 interface Props {
   params: {
     slug: string;
   };
 }
-export default function ProductPage({ params }: Props) {
+export default async function ProductPage({ params }: Props) {
+  const payload = await getPayloadHMR({ config: configPromise });
+
   const { slug } = params;
-  const productData = productsData.find(
-    (product) => product.id === Number(slug)
-  );
+  const products = await payload.find({
+    collection: "products",
+  });
+  const res = await payload.find({
+    collection: "products",
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  });
+  const product = res.docs[0];
+
   const getRandomProducts = (
-    productsData: ProductType[],
+    productsData: Product[],
     numberOfProducts: number
   ) => {
     // Shuffle the array using Fisher-Yates algorithm
@@ -47,14 +63,14 @@ export default function ProductPage({ params }: Props) {
 
   // Usage: Get 4 random products
   const randomProducts = getRandomProducts(
-    productsData.filter((product) => product.id !== Number(slug)),
+    products.docs.filter((p) => p.id !== product.id),
     6
   );
-  if (!productData) notFound();
+  if (!product) notFound();
   return (
     <div>
       <section
-        id={productData?.name}
+        id={product.name}
         className="px-6 py-2 mx-auto max-w-[1200px] md:px-14"
       >
         <Breadcrumb>
@@ -72,7 +88,7 @@ export default function ProductPage({ params }: Props) {
               <Slash />
             </BreadcrumbSeparator>
             <BreadcrumbItem>
-              <BreadcrumbPage>{productData?.name}</BreadcrumbPage>
+              <BreadcrumbPage>{product.name}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -80,14 +96,14 @@ export default function ProductPage({ params }: Props) {
         <div className="pt-2 pb-6 md:pt-6">
           <div className="py-2 md:hidden">
             <h1 className={`${logoFont.className} text-4xl`}>
-              {productData?.name}
+              {product.name}
               <span className="text-muted-foreground text-2xl">
                 {" "}
-                ({productData?.height}mm)
+                ({product.height}mm)
               </span>
             </h1>
             <h2 className="text-muted-foreground">
-              {productData?.collection} COLLECTION
+              {(product.collectionName as Collection).name} COLLECTION
             </h2>
           </div>
           <div className="md:grid md:grid-cols-2">
@@ -95,8 +111,8 @@ export default function ProductPage({ params }: Props) {
               <div className=" flex justify-center items-center pt-4 h-[400px] overflow-hidden shadow-2xl shadow-slate-950  rounded-2xl md:justify-start md:h-[500px]">
                 <Image
                   className="object-cover object-center"
-                  src={productData?.image}
-                  alt={productData?.name}
+                  src={(product.image as Media).url || ""}
+                  alt={product.name}
                   width={400}
                   height={400}
                 />
@@ -105,14 +121,14 @@ export default function ProductPage({ params }: Props) {
             <div>
               <div className="py-2 hidden md:block">
                 <h1 className={`${logoFont.className} text-4xl`}>
-                  {productData?.name}
+                  {product.name}
                   <span className="text-muted-foreground text-2xl">
                     {" "}
-                    ({productData?.height}mm)
+                    ({product.height}mm)
                   </span>
                 </h1>
                 <h2 className="text-muted-foreground">
-                  {productData?.collection} COLLECTION
+                  {(product.collectionName as Collection).name} COLLECTION
                 </h2>
               </div>
               <div className="pt-4 md:pt-2">
@@ -120,26 +136,26 @@ export default function ProductPage({ params }: Props) {
                   Precio
                 </h3> */}
                 <p className={`${logoFont.className} pt-2 text-3xl`}>
-                  S/{productData?.price.toFixed(2)}
+                  S/{product.price.toFixed(2)}
                 </p>
                 <div className="md:grid grid-cols-2 gap-8">
                   <div className="mt-4">
                     <AddToCartButton
-                      id={productData.id}
-                      name={`${productData.name} (${productData.height}mm)`}
-                      price={productData.price}
+                      id={product.id}
+                      name={`${product.name} (${product.height}mm)`}
+                      price={product.price}
                       variant="secondary"
                     />
                   </div>
                   <a
                     href={`https://api.whatsapp.com/send/?phone=51922360504&text=${encodeURI(
                       "Hola! 👋 Me interesa este producto: \n" +
-                        productData?.name +
+                        product?.name +
                         " - S/." +
-                        productData?.price.toFixed(2) +
+                        product?.price.toFixed(2) +
                         "\n" +
                         "https://www.blackcomet3d.com/product/" +
-                        productData?.id +
+                        product?.slug +
                         "\n" +
                         "Quisiera saber información del envío y disponibilidad. 📦 \nMuchas Gracias!"
                     )}`}
@@ -163,10 +179,10 @@ export default function ProductPage({ params }: Props) {
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className="text-muted-foreground text-base">
-                      Altura: {productData?.height} mm
+                      Altura: {product?.height} mm
                     </p>
                     <p className="pt-2 text-muted-foreground text-base">
-                      Ancho: {productData?.height} mm
+                      Ancho: {product?.height} mm
                     </p>
                   </AccordionContent>
                 </AccordionItem>
@@ -180,7 +196,7 @@ export default function ProductPage({ params }: Props) {
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className=" text-muted-foreground">
-                      {productData?.description}
+                      {product?.description}
                     </p>
                   </AccordionContent>
                 </AccordionItem>
