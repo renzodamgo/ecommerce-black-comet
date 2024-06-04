@@ -205,7 +205,7 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </section>
-      <CarouselProducts products={randomProducts} title="Te puede interesar" />
+      {/* <CarouselProducts products={randomProducts} title="Te puede interesar" /> */}
     </div>
   );
 }
