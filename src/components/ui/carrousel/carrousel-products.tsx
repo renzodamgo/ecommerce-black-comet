@@ -1,7 +1,6 @@
 "use client";
 import { ProductCard } from "@/components/products/product-card.tsx/ProductCard";
 import { logoFont } from "@/config/fonts";
-import { ProductType } from "@/data/products.data";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,

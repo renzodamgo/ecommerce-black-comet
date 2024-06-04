@@ -1,18 +1,14 @@
-import { ProductType } from "@/interfaces/products.type";
-import configPromise from "@payload-config";
-import { getPayloadHMR } from "@payloadcms/next/utilities";
 import { ProductCard } from "../product-card.tsx/ProductCard";
+import { Product } from "@/payload-types";
 
-export const ProductGrid = async () => {
-  const payload = await getPayloadHMR({ config: configPromise });
+type Props = {
+  products: Product[];
+};
 
-  const data = await payload.find({
-    collection: "products",
-    depth: 1,
-  });
+export const ProductGrid = async ({ products }: Props) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:grid-cols-4 pb-8 md:pb-12">
-      {data.docs.map((product) => (
+      {products.map((product) => (
         <div key={product.id}>
           <ProductCard product={product} />
         </div>
@@ -20,5 +16,3 @@ export const ProductGrid = async () => {
     </div>
   );
 };
-
-export const revalidate = 60;

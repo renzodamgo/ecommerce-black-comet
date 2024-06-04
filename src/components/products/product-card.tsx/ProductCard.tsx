@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { AddToCartButton } from "@/components/ui/cart-buttons/add-to-cart-btn";
-import { ProductType } from "@/interfaces/products.type";
 import { Media, Product } from "@/payload-types";
 import { EyeIcon, ShoppingBagIcon } from "lucide-react";
 import Image from "next/image";

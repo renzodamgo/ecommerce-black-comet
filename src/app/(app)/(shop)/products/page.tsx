@@ -8,18 +8,12 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import {
-  CheckCircle2Icon,
-  Minus,
-  Plus,
-  ShoppingBag,
-  Slash,
-  SparklesIcon,
-  Stars,
-} from "lucide-react";
+import { Slash } from "lucide-react";
 import { logoFont } from "@/config/fonts";
-const products = productsData;
-export default function ProductsPage() {
+import { fetchProducts } from "@/app/(payload)/utilities/payloadQueries";
+
+export default async function ProductsPage() {
+  const { docs } = await fetchProducts();
   return (
     <div>
       <div className="mx-auto px-6 sm:px-14 max-w-[1200px] pt-4 ">
@@ -42,8 +36,10 @@ export default function ProductsPage() {
         >
           Nuestro Catálogo
         </h1>
-        <ProductGrid  />
+        <ProductGrid products={docs} />
       </div>
     </div>
   );
 }
+
+export const revalidate = 60;

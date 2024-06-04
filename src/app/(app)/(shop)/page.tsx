@@ -1,13 +1,17 @@
+import { fetchProducts } from "@/app/(payload)/utilities/payloadQueries";
 import { ProductGrid } from "@/components/products/product-grid/ProductGrid";
 import { MainHero } from "@/components/ui/hero/MainHero";
 
-export default function Home() {
+export default async function Home() {
+  const { docs } = await fetchProducts();
   return (
     <main>
       <div className="mx-auto px-6 sm:px-14 max-w-[1200px] pt-4 grid gap-8 ">
         <MainHero />
-        <ProductGrid />
+        <ProductGrid products={docs} />
       </div>
     </main>
   );
 }
+
+export const revalidate = 60;
