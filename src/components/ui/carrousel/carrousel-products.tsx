@@ -9,9 +9,10 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { useRef } from "react";
+import { Product } from "@/payload-types";
 
 interface Props {
-  products: ProductType[];
+  products: Product[];
   title: string;
 }
 export const CarouselProducts = ({ products, title }: Props) => {
