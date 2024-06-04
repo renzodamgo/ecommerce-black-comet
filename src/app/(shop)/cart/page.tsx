@@ -45,7 +45,7 @@ const CartPage = () => {
       .reduce((a, b) => a + b, 0);
     const message = `Hola! 👋 Me interesan los siguientes productos:\n${itemsMessage.join(
       "\n"
-    )} \nTotal: S/${total} \n¿Podrían ayudarme con el proceso de compra?`;
+    )} \nTotal: S/${total} \n\nQuisiera saber información del envío y disponibilidad. 📦 \nMuchas Gracias!`;
     return `${whatsappLink}${encodeURIComponent(message)}`;
   };
 
@@ -160,7 +160,7 @@ const CartPage = () => {
               </Button>
             </Link>
             {items.length !== 0 && (
-              <a href={handleCheckoutMessage()}>
+              <a href={handleCheckoutMessage()} target="_blank">
                 <Button className="mt-4 w-full md:w-60">
                   <CheckCircle2Icon className="mr-2" /> Proceder al pago
                 </Button>
