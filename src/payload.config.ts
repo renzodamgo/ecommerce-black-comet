@@ -10,6 +10,8 @@ import { Users } from "./collections/Users";
 import { Products } from "./collections/Products";
 import { Media } from "./collections/Media";
 import { Collections } from "./collections/Collection";
+import s3Upload from "payload-s3-upload";
+import { S3Client } from "@aws-sdk/client-s3";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -28,6 +30,17 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || "",
   }),
+  plugins: [
+    s3Upload(
+      new S3Client({
+        region: process.env.AWS_REGION || "",
+        credentials: {
+          accessKeyId: process.env.AWS_KEY || "",
+          secretAccessKey: process.env.AWS_SECRET || "",
+        },
+      })
+    ),
+  ],
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
