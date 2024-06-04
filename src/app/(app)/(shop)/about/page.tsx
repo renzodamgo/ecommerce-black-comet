@@ -69,10 +69,10 @@ export default function About() {
             </div>
           </div>
         </div>
-        <CarouselProducts
+        {/* <CarouselProducts
           products={productsData.slice(0, 6)}
           title="Te puede interesar "
-        />
+        /> */}
       </section>
     </div>
   );
