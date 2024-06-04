@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 type itemCart = {
   id: number;
@@ -14,33 +15,40 @@ type cartStore = {
   removeOneItem: (id: number) => void;
 };
 
-const useCartStore = create<cartStore>((set) => ({
-  items: [],
-  addItem: (item) =>
-    set((state) => {
-      const itemIndex = state.items.findIndex((i) => i.id === item.id);
-      if (itemIndex !== -1) {
-        state.items[itemIndex].quantity += 1;
-        return { items: state.items };
-      }
-      return { items: [...state.items, item] };
-    }),
-  removeItem: (id) =>
-    set((state) => ({
-      items: state.items.filter((i) => i.id !== id),
-    })),
-  removeOneItem: (id) =>
-    set((state) => {
-      const itemIndex = state.items.findIndex((i) => i.id === id);
-      if (itemIndex !== -1) {
-        if (state.items[itemIndex].quantity > 1) {
-          state.items[itemIndex].quantity -= 1;
+const useCartStore = create<cartStore>()(
+  persist(
+    (set) => ({
+      items: [],
+      addItem: (item) =>
+        set((state) => {
+          const itemIndex = state.items.findIndex((i) => i.id === item.id);
+          if (itemIndex !== -1) {
+            state.items[itemIndex].quantity += 1;
+            return { items: state.items };
+          }
+          return { items: [...state.items, item] };
+        }),
+      removeItem: (id) =>
+        set((state) => ({
+          items: state.items.filter((i) => i.id !== id),
+        })),
+      removeOneItem: (id) =>
+        set((state) => {
+          const itemIndex = state.items.findIndex((i) => i.id === id);
+          if (itemIndex !== -1) {
+            if (state.items[itemIndex].quantity > 1) {
+              state.items[itemIndex].quantity -= 1;
+              return { items: state.items };
+            }
+            return { items: state.items.filter((i) => i.id !== id) };
+          }
           return { items: state.items };
-        }
-        return { items: state.items.filter((i) => i.id !== id) };
-      }
-      return { items: state.items };
+        }),
     }),
-}));
+    {
+      name: "cart-store",
+    }
+  )
+);
 
 export default useCartStore;
