@@ -169,7 +169,7 @@ const CartPage = () => {
           </div>
         </div>
       </div>
-      <CarouselProducts products={data} title="Te puede interesar " />
+      {/* <CarouselProducts products={data} title="Te puede interesar " /> */}
     </section>
   );
 };
