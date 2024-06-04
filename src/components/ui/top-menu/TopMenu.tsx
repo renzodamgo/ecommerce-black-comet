@@ -73,7 +73,7 @@ export const TopMenu = () => {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex gap-4 md:hidden pt-8">
-          <Link className="" href="">
+          <Link className="" href={"/cart"}>
             <ShoppingCartIcon width={32} height={32} className="mb-1" />
           </Link>
           <button className="" onClick={toggle}>
