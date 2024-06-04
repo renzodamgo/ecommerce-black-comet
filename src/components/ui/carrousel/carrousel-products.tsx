@@ -26,7 +26,7 @@ export const CarouselProducts = ({ products, title }: Props) => {
   return (
     <section
       id="Otros Productos"
-      className="px-6 pb-8 pt-2 md:px-12 mx-auto max-w-[1200px]  "
+      className="px-6 pb-8 pt-2 md:px-14 mx-auto max-w-[1200px]  "
     >
       <h2 className={`${logoFont.className} text-2xl md:text-3xl`}>{title}</h2>
       <div className="md:gradient-mask-r-90 pb-4">

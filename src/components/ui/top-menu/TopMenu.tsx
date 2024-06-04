@@ -42,21 +42,21 @@ export const TopMenu = () => {
             className={`${logoFont.className} font-bold gap-8 pt-6 uppercase hidden sm:flex`}
           >
             <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
+              <Link href="/products" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Productos
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <Link href="/" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Colecciones
                 </NavigationMenuLink>
               </Link>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
             <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
+              <Link href="/about" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Nosotros
                 </NavigationMenuLink>
