@@ -1,14 +1,15 @@
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+import configPromise from "@payload-config";
+// import { getPayload } from "payload";
+import { getPayloadHMR } from "@payloadcms/next/utilities";
 
 export const GET = async () => {
-  const payload = await getPayload({
+  const payload = await getPayloadHMR({
     config: configPromise,
-  })
+  });
 
   const data = await payload.find({
-    collection: 'users',
-  })
+    collection: "users",
+  });
 
-  return Response.json(data)
-}
+  return Response.json(data);
+};

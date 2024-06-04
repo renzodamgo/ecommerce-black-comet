@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 
 import { Users } from "./collections/Users";
 import { Products } from "./collections/Products";
+import { Media } from "./collections/Media";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -16,7 +17,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Products],
+  collections: [Users, Products, Media],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || "",
