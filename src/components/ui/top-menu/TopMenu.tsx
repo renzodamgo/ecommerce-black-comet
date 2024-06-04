@@ -1,6 +1,6 @@
 "use client";
-import { logoFont, titleFont } from "@/config/fonts";
-import { Menu, MenuSquare, ShoppingCartIcon } from "lucide-react";
+import { logoFont } from "@/config/fonts";
+import { Menu, ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,8 +11,10 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import useSidebarStore from "@/store/sidebar.store";
+import useCartStore from "@/store/cart.store";
 
 export const TopMenu = () => {
+  const { items } = useCartStore();
   const { isOpen, toggle } = useSidebarStore();
   const cartItems = 5;
   return (
@@ -59,22 +61,32 @@ export const TopMenu = () => {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            {cartItems > 0 && (
-              <NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/cart">
                 <div className="relative">
                   <span className="absolute text-xs rounded-full bg-blue-600 -top-2 -right-2 px-1 font-sans">
-                    {cartItems}
+                    {items.length > 0
+                      ? items.reduce((sum, item) => sum + item.quantity, 0)
+                      : 0}
                   </span>
 
                   <ShoppingCartIcon width={24} height={24} className="mb-1" />
                 </div>
-              </NavigationMenuItem>
-            )}
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex gap-4 md:hidden pt-8">
           <Link className="" href={"/cart"}>
-            <ShoppingCartIcon width={32} height={32} className="mb-1" />
+            <div className="relative">
+              <span className="absolute text-xs rounded-full bg-blue-600 -top-2 -right-2 px-1 font-sans">
+                {items.length > 0
+                  ? items.reduce((sum, item) => sum + item.quantity, 0)
+                  : 0}
+              </span>
+
+              <ShoppingCartIcon width={24} height={24} className="mb-1" />
+            </div>
           </Link>
           <button className="" onClick={toggle}>
             <Menu width={32} height={32} className="mb-1" />

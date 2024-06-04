@@ -12,8 +12,9 @@ import { useRef } from "react";
 
 interface Props {
   products: ProductType[];
+  title: string;
 }
-export const CarouselProducts = ({ products }: Props) => {
+export const CarouselProducts = ({ products, title }: Props) => {
   const plugin = useRef(
     Autoplay({
       delay: 4000,
@@ -27,9 +28,7 @@ export const CarouselProducts = ({ products }: Props) => {
       id="Otros Productos"
       className="px-6 pb-8 pt-2 md:px-12 mx-auto max-w-[1200px]  "
     >
-      <h2 className={`${logoFont.className} text-2xl md:text-3xl`}>
-        Te puede interesar
-      </h2>
+      <h2 className={`${logoFont.className} text-2xl md:text-3xl`}>{title}</h2>
       <div className="md:gradient-mask-r-90 pb-4">
         <Carousel
           plugins={[plugin.current]}

@@ -184,7 +184,7 @@ export default function ProductPage({ params }: Props) {
           </div>
         </div>
       </section>
-      <CarouselProducts products={randomProducts} />
+      <CarouselProducts products={randomProducts} title="Te puede interesar" />
     </div>
   );
 }
