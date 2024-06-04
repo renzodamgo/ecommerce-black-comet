@@ -1,4 +1,3 @@
-"use client";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,20 +6,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import {
-  CheckCircle2Icon,
-  Minus,
-  Plus,
-  ShoppingBag,
-  Slash,
-  SparklesIcon,
-  Stars,
-} from "lucide-react";
+import { Slash, Stars } from "lucide-react";
 import { logoFont } from "@/config/fonts";
 import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
-import { productsData } from "@/data/products.data";
+import { fetchProducts } from "@/app/(payload)/utilities/payloadQueries";
 
-export default function About() {
+export default async function About() {
+  const { docs } = await fetchProducts();
   return (
     <div>
       <section id="Nosotros">
@@ -69,10 +61,10 @@ export default function About() {
             </div>
           </div>
         </div>
-        {/* <CarouselProducts
-          products={productsData.slice(0, 6)}
+        <CarouselProducts
+          products={docs.slice(0, 6)}
           title="Te puede interesar "
-        /> */}
+        />
       </section>
     </div>
   );

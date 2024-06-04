@@ -1,5 +1,4 @@
 import { ProductGrid } from "@/components/products/product-grid/ProductGrid";
-import { productsData } from "@/data/products.data";
 import {
   Breadcrumb,
   BreadcrumbItem,
