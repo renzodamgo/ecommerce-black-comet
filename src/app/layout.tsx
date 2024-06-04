@@ -4,6 +4,8 @@ import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+import { Toaster } from "@/components/ui/sonner";
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -36,6 +38,7 @@ export default function RootLayout({
         >
           {children}
           <Analytics />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
