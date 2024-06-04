@@ -34,7 +34,7 @@ import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
 
 const CartPage = () => {
   const { items, addItem, removeItem, removeOneItem } = useCartStore();
-  const whatsappLink = "https://api.whatsapp.com/send/?phone=51924523178&text=";
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=51922360504&text=";
   const handleCheckoutMessage = () => {
     const itemsMessage = items.map(
       (i) =>
@@ -43,7 +43,7 @@ const CartPage = () => {
     const total = items
       .map((i) => i.price * i.quantity)
       .reduce((a, b) => a + b, 0);
-    const message = `Hola, estoy interesado en los siguientes productos:\n${itemsMessage.join(
+    const message = `Hola! 👋 Me interesan los siguientes productos:\n${itemsMessage.join(
       "\n"
     )} \nTotal: S/${total} \n¿Podrían ayudarme con el proceso de compra?`;
     return `${whatsappLink}${encodeURIComponent(message)}`;
