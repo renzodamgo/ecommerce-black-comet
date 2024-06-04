@@ -12,11 +12,12 @@ import {
 } from "@/components/ui/navigation-menu";
 import useSidebarStore from "@/store/sidebar.store";
 import useCartStore from "@/store/cart.store";
+// import useStore from "@/store/useStore";
 
 export const TopMenu = () => {
   const { items } = useCartStore();
+  // const items = useStore(useCartStore, (state) => state.items);
   const { isOpen, toggle } = useSidebarStore();
-  const cartItems = 5;
   return (
     <div>
       <nav className="flex px-6 sm:px-14 justify-between items-center w-full pt-2 pb-4 mx-auto max-w-[1200px]">
@@ -65,7 +66,7 @@ export const TopMenu = () => {
               <Link href="/cart">
                 <div className="relative">
                   <span className="absolute text-xs rounded-full bg-blue-600 -top-2 -right-2 px-1 font-sans">
-                    {items.length > 0
+                    {items
                       ? items.reduce((sum, item) => sum + item.quantity, 0)
                       : 0}
                   </span>
@@ -80,7 +81,7 @@ export const TopMenu = () => {
           <Link className="" href={"/cart"}>
             <div className="relative">
               <span className="absolute text-xs rounded-full bg-blue-600 -top-2 -right-2 px-1 font-sans">
-                {items.length > 0
+                {items
                   ? items.reduce((sum, item) => sum + item.quantity, 0)
                   : 0}
               </span>
