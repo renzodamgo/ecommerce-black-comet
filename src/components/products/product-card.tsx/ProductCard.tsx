@@ -33,7 +33,7 @@ export const ProductCard = ({ product }: Props) => {
         <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm min-h-10">
           {product.description}
         </p>
-        <Link href={`/product/${product.id}`}>
+        <Link href={`/product/${product.slug}`}>
           <Button className="w-full mt-auto mb-4" variant={"secondary"}>
             <EyeIcon className="mr-2" height={20} width={20} />
             Ver Producto
