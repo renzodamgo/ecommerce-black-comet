@@ -47,9 +47,12 @@ export const MainHero = () => {
           muted
           playsInline
           className="absolute w-full h-full top-0 left-0 object-cover z-10 shadow-inner"
-          src="https://blackcomet-storage.s3.us-east-2.amazonaws.com/mousinrender3d.webm"
-          typeof="video/webm"
-        />
+        >
+          <source
+            src="https://blackcomet-storage.s3.us-east-2.amazonaws.com/mousinrender3d.webm"
+            type="video/webm"
+          />
+        </video>
         <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-b md:bg-gradient-to-r from-[#000072ec] via-[#000072ad] via-20% to-[rgba(44,83,100,0)] z-20"></div>
       </div>
     </div>
