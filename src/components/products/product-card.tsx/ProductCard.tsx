@@ -13,7 +13,7 @@ type Props = {
 export const ProductCard = ({ product }: Props) => {
   return (
     <div className="product-card rounded-2xl border border-white overflow-hidden flex flex-col h-[440px] transition duration-300 ease-in-out transform hover:scale-[102%]">
-      <div className="flex-grow overflow-hidden h-[350px] bg-black">
+      <div className="flex-grow overflow-hidden h-[400px] bg-black">
         <Link href={`/product/${product.slug}`}>
           <Image
             className="  mx-auto h-full object-cover  object-center rounded-2xl shadow-inner "
