@@ -1,4 +1,5 @@
 import { CollectionConfig, FieldHook } from "payload/types";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 const formatSlug: FieldHook = async ({ value, data }) => {
   // return formatted version of title if exists, else return unmodified value
   return data?.name?.replace(/ /g, "-").toLowerCase() ?? value;
@@ -46,7 +47,8 @@ export const Products: CollectionConfig = {
 
     {
       name: "description",
-      type: "textarea",
+      type: "richText",
+      editor: lexicalEditor({}),
       required: true,
     },
     {
