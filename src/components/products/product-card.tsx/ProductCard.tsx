@@ -29,9 +29,12 @@ export const ProductCard = ({ product }: Props) => {
           <h2>{product.name}</h2>
           <p>S/{product.price.toFixed(2)}</p>
         </div>
-        <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm min-h-10">
+        <div
+          className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm min-h-10"
+          dangerouslySetInnerHTML={{ __html: product?.description_html || "" }}
+        >
           {/* {product.description} */}
-        </p>
+        </div>
         <Link href={`/product/${product.slug}`}>
           <Button className="w-full mt-auto mb-4" variant={"secondary"}>
             <EyeIcon className="mr-2" height={20} width={20} />

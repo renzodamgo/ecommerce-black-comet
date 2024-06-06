@@ -200,9 +200,14 @@ export default async function ProductPage({ params }: Props) {
                     </h3>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className=" text-muted-foreground">
+                    <div
+                      className=" text-muted-foreground grid gap-2"
+                      dangerouslySetInnerHTML={{
+                        __html: product?.description_html || "",
+                      }}
+                    >
                       {/* {product?.description} */}
-                    </p>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
