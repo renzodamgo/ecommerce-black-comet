@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import React, { useRef, useEffect } from "react";
 import { Button } from "../button";
+import Link from "next/link";
 
 export const MainHero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -28,16 +29,20 @@ export const MainHero = () => {
           Elige entre más de 10 figurines de colección o compra el set completo
           con una oferta exclusiva.
         </h2>
-        <Button className="mt-4 w-full hidden md:flex ">
-          <PackageOpenIcon className="mr-2" height={24} width={24} /> Ver
-          Colección
-        </Button>
+        <Link href="/products">
+          <Button className="mt-4 w-full hidden md:flex ">
+            <PackageOpenIcon className="mr-2" height={24} width={24} /> Ver
+            Colección
+          </Button>
+        </Link>
       </div>
       <div className="absolute bottom-0 z-30 p-8 w-full md:w-1/3 md:hidden">
-        <Button className="mt-4 w-full">
-          <PackageOpenIcon className="mr-2" height={24} width={24} /> Ver
-          Colección
-        </Button>
+        <Link href="/products">
+          <Button className="mt-4 w-full">
+            <PackageOpenIcon className="mr-2" height={24} width={24} /> Ver
+            Colección
+          </Button>
+        </Link>
       </div>
       <div>
         <video
