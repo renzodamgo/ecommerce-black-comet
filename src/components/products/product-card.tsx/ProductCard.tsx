@@ -30,7 +30,7 @@ export const ProductCard = ({ product }: Props) => {
           <p>S/{product.price.toFixed(2)}</p>
         </div>
         <p className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm min-h-10">
-          {product.description}
+          {/* {product.description} */}
         </p>
         <Link href={`/product/${product.slug}`}>
           <Button className="w-full mt-auto mb-4" variant={"secondary"}>

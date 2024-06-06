@@ -201,7 +201,7 @@ export default async function ProductPage({ params }: Props) {
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className=" text-muted-foreground">
-                      {product?.description}
+                      {/* {product?.description} */}
                     </p>
                   </AccordionContent>
                 </AccordionItem>
