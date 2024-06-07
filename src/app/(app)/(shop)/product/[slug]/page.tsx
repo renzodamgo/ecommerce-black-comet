@@ -173,8 +173,12 @@ export default async function ProductPage({ params }: Props) {
                   </a>
                 </div>
               </div>
-              <Accordion className="md:pt-4" type="single" collapsible>
-                <AccordionItem value="item-1">
+              <Accordion
+                className="md:pt-4"
+                type="multiple"
+                defaultValue={["dimensions", "description"]}
+              >
+                <AccordionItem value="dimensions">
                   <AccordionTrigger>
                     <h3
                       className={`${logoFont.className}  text-lg font-semibold`}
@@ -194,7 +198,7 @@ export default async function ProductPage({ params }: Props) {
                     </p>
                   </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="item-2">
+                <AccordionItem value="description">
                   <AccordionTrigger>
                     <h3
                       className={`${logoFont.className}  text-lg font-semibold`}
