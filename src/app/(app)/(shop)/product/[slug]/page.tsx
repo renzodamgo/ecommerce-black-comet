@@ -110,7 +110,7 @@ export default async function ProductPage({ params }: Props) {
               </span>
             </h1>
             <h2 className="text-muted-foreground">
-              {(product.collectionName as Collection).name} COLLECTION
+              {(product.collectionName as Collection).name}
             </h2>
           </div>
           <div className="md:grid md:grid-cols-2">
@@ -135,7 +135,7 @@ export default async function ProductPage({ params }: Props) {
                   </span>
                 </h1>
                 <h2 className="text-muted-foreground">
-                  {(product.collectionName as Collection).name} COLLECTION
+                  {(product.collectionName as Collection).name}
                 </h2>
               </div>
               <div className="pt-4 md:pt-2">
