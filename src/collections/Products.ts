@@ -1,5 +1,9 @@
 import { CollectionConfig, FieldHook } from "payload/types";
-import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from "@payloadcms/richtext-lexical";
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML,
+} from "@payloadcms/richtext-lexical";
 const formatSlug: FieldHook = async ({ value, data }) => {
   // return formatted version of title if exists, else return unmodified value
   return data?.name?.replace(/ /g, "-").toLowerCase() ?? value;
@@ -54,7 +58,7 @@ export const Products: CollectionConfig = {
           HTMLConverterFeature({}),
         ],
       }),
-      
+
       required: true,
     },
     {
@@ -74,6 +78,12 @@ export const Products: CollectionConfig = {
       type: "number",
       required: true,
     },
-    lexicalHTML('description', { name: 'description_html' }),
+    {
+      name: "scale",
+      label: "Scale",
+      type: "number",
+      required: true,
+    },
+    lexicalHTML("description", { name: "description_html" }),
   ],
 };

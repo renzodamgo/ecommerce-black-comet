@@ -67,6 +67,7 @@ export interface Product {
   collectionName: string | Collection;
   height: number;
   width: number;
+  scale: number;
   description_html?: string | null;
   updatedAt: string;
   createdAt: string;

@@ -31,15 +31,15 @@ export default buildConfig({
     url: process.env.DATABASE_URI || "",
   }),
   plugins: [
-    s3Upload(
-      new S3Client({
-        region: process.env.AWS_REGION || "",
-        credentials: {
-          accessKeyId: process.env.AWS_KEY || "",
-          secretAccessKey: process.env.AWS_SECRET || "",
-        },
-      })
-    ),
+    // s3Upload(
+    //   new S3Client({
+    //     region: process.env.AWS_REGION || "",
+    //     credentials: {
+    //       accessKeyId: process.env.AWS_KEY || "",
+    //       secretAccessKey: process.env.AWS_SECRET || "",
+    //     },
+    //   })
+    // ),
   ],
 
   // Sharp is now an optional dependency -

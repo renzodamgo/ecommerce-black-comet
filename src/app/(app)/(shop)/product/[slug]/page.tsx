@@ -187,7 +187,10 @@ export default async function ProductPage({ params }: Props) {
                       Altura: {product?.height} mm
                     </p>
                     <p className="pt-2 text-muted-foreground text-base">
-                      Ancho: {product?.height} mm
+                      Ancho de base: {product?.height} mm
+                    </p>
+                    <p className="pt-2 text-muted-foreground text-base">
+                      Escala: {product?.scale} mm
                     </p>
                   </AccordionContent>
                 </AccordionItem>
