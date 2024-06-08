@@ -49,6 +49,9 @@ export interface Product {
   category: string;
   price: number;
   image: string | Media;
+  image_2?: string | Media | null;
+  image_3?: string | Media | null;
+  video?: string | Media | null;
   description: {
     root: {
       type: string;
