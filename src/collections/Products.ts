@@ -48,6 +48,24 @@ export const Products: CollectionConfig = {
       relationTo: "media",
       required: true,
     },
+    {
+      name: "image_2",
+      type: "upload",
+      relationTo: "media",
+      required: false,
+    },
+    {
+      name: "image_3",
+      type: "upload",
+      relationTo: "media",
+      required: false,
+    },
+    {
+      name: "video",
+      type: "upload",
+      relationTo: "media",
+      required: false,
+    },
 
     {
       name: "description",
