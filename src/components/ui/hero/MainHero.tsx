@@ -1,23 +1,10 @@
-"use client";
 import {
-  BugPlay,
-  LucideView,
   PackageOpenIcon,
-  View,
-  ViewIcon,
 } from "lucide-react";
-import React, { useRef, useEffect } from "react";
 import { Button } from "../button";
 import Link from "next/link";
 
 export const MainHero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 1;
-    }
-  }, []);
 
   return (
     <div className="relative overflow-hidden rounded-lg w-full h-[450px] md:h-[650px] shadow-2xl shadow-gray-900">
@@ -46,12 +33,12 @@ export const MainHero = () => {
       </div>
       <div>
         <video
-          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
           className="absolute w-full h-full top-0 left-0 object-cover z-10 shadow-inner"
+          poster=""
         >
           <source
             src="https://blackcomet-storage.s3.us-east-2.amazonaws.com/mousinrender3d.webm"
