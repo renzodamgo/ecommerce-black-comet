@@ -58,7 +58,7 @@ export const MainHero = () => {
             type="video/webm"
           />
         </video>
-        <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-b md:bg-gradient-to-r from-[#000072ec] via-[#000072ad] via-20% to-[rgba(44,83,100,0)] z-20"></div>
+        <div className="absolute w-full h-full top-0 left-0 bg-gradient-to-b md:bg-gradient-to-r from-[#000072ec] via-[#000072ad] via-20%  z-20"></div>
       </div>
     </div>
   );
