@@ -12,11 +12,11 @@ type Props = {
 
 export const ProductCard = ({ product }: Props) => {
   return (
-    <div className="product-card rounded-2xl border border-white overflow-hidden flex flex-col h-[500px] md:h-[460px] transition duration-300 ease-in-out transform hover:scale-[102%]">
-      <div className="flex-grow overflow-hidden h-[400px] bg-black">
+    <div className="product-card rounded-2xl border border-white overflow-hidden flex flex-col h-[500px] md:h-[470px] transition duration-300 ease-in-out transform hover:scale-[102%]">
+      <div className="overflow-hidden  bg-black ire">
         <Link href={`/product/${product.slug}`}>
           <Image
-            className="  mx-auto h-full object-cover  object-center rounded-2xl shadow-inner "
+            className="  mx-auto h-full  rounded-2xl shadow-inner  "
             src={(product.image as Media)?.url || ""}
             alt={product.name}
             width={400}
@@ -24,19 +24,19 @@ export const ProductCard = ({ product }: Props) => {
           />
         </Link>
       </div>
-      <div className="px-6 pb-6 pt-6 md:px-4 md:py-4 flex flex-col justify-between flex-grow">
-        <div className="flex justify-between items-center font-semibold pb-2">
-          <h2>{product.name}</h2>
+      <div className="px-6 pb-6 pt-6 md:px-4 md:py-4 flex flex-col justify-between ">
+        <div className="flex justify-between items-start font-semibold pb-2 gap-4 h-14 ">
+          <h2 className="line-clamp-2">{product.name}</h2>
           <p>S/{product.price.toFixed(2)}</p>
         </div>
         <div
-          className="text-muted-foreground line-clamp-2 overflow-hidden mb-4 text-sm min-h-10"
+          className="text-muted-foreground line-clamp-2 overflow-hidden mb-6 text-sm min-h-10"
           dangerouslySetInnerHTML={{ __html: product?.description_html || "" }}
         >
           {/* {product.description} */}
         </div>
         <Link href={`/product/${product.slug}`}>
-          <Button className="w-full mt-auto mb-4" variant={"secondary"}>
+          <Button className="w-full  mb-4" variant={"secondary"}>
             <EyeIcon className="mr-2" height={20} width={20} />
             Ver Producto
           </Button>
