@@ -13,4 +13,4 @@ export default async function CartPage() {
   );
 }
 
-const revalidate = 60;
+const revalidate = 260;
