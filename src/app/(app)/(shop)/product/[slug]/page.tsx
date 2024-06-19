@@ -49,8 +49,6 @@ const fetchPayloadData = async (slug: string) => {
     collection: "products",
   });
 
-
-
   const randomProducts = getRandomProducts(
     products.docs.filter((p) => p.id !== product.id),
     6
@@ -107,13 +105,13 @@ export default async function ProductPage({ params }: Props) {
           </div>
           <div className="md:grid md:grid-cols-2">
             <div>
-              <div className=" flex justify-center items-center pt-4 h-[400px] overflow-hidden shadow-2xl shadow-slate-950  rounded-2xl md:justify-start md:h-[500px]">
+              <div className=" flex justify-center items-center pt-4 h-[400px] md:h-auto overflow-hidden shadow-2xl shadow-slate-950  rounded-2xl md:justify-start">
                 <Image
                   className="object-cover object-center"
                   src={(product.image as Media).url || ""}
                   alt={product.name}
-                  width={400}
-                  height={400}
+                  width={500}
+                  height={500}
                 />
               </div>
             </div>
@@ -226,6 +224,5 @@ export async function generateStaticParams() {
     slug: product.slug,
   }));
 }
-
 
 export const revalidate = 60; // Revalidate every 60 seconds
