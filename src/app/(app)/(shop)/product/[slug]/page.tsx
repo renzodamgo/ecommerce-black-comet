@@ -23,6 +23,7 @@ import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
 import { AddToCartButton } from "@/components/ui/cart-buttons/add-to-cart-btn";
 import { Collection, Media, Product } from "@/payload-types";
 import { getRandomProducts } from "@/utils/helper";
+import { fetchProducts } from "@/app/(payload)/utilities/payloadQueries";
 
 interface Props {
   params: {
@@ -217,5 +218,14 @@ export default async function ProductPage({ params }: Props) {
     </div>
   );
 }
+
+export async function generateStaticParams() {
+  const products = await fetchProducts();
+
+  return products.map((product: Product) => ({
+    slug: product.slug,
+  }));
+}
+
 
 export const revalidate = 60; // Revalidate every 60 seconds
