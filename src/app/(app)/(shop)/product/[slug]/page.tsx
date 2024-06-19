@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button";
 import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
 import { AddToCartButton } from "@/components/ui/cart-buttons/add-to-cart-btn";
 import { Collection, Media, Product } from "@/payload-types";
+import { getRandomProducts } from "@/utils/helper";
 
 interface Props {
   params: {
@@ -47,21 +48,11 @@ const fetchPayloadData = async (slug: string) => {
     collection: "products",
   });
 
-  const getRandomProducts = (
-    productsData: Product[],
-    numberOfProducts: number
-  ) => {
-    for (let i = productsData.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [productsData[i], productsData[j]] = [productsData[j], productsData[i]];
-    }
 
-    return productsData.slice(0, numberOfProducts);
-  };
 
   const randomProducts = getRandomProducts(
     products.docs.filter((p) => p.id !== product.id),
-    4
+    6
   );
 
   return { product, randomProducts };
@@ -225,17 +216,6 @@ export default async function ProductPage({ params }: Props) {
       <CarouselProducts products={randomProducts} title="Te puede interesar" />
     </div>
   );
-}
-
-export async function generateStaticParams() {
-  const payload = await getPayloadHMR({ config: configPromise });
-  const products = await payload.find({
-    collection: "products",
-  });
-
-  return products.docs.map((product: Product) => ({
-    slug: product.slug,
-  }));
 }
 
 export const revalidate = 60; // Revalidate every 60 seconds

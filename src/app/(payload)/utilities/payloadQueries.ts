@@ -1,3 +1,4 @@
+import { Product } from "@/payload-types";
 import configPromise from "@payload-config";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
 
@@ -6,6 +7,7 @@ export const fetchProducts = async () => {
 
   const data = await payload.find({
     collection: "products",
+    pagination: false,
   });
-  return data;
+  return data.docs as Product[];
 };

@@ -12,7 +12,7 @@ import { CarouselProducts } from "@/components/ui/carrousel/carrousel-products";
 import { fetchProducts } from "@/app/(payload)/utilities/payloadQueries";
 
 export default async function About() {
-  const { docs } = await fetchProducts();
+  const products = await fetchProducts();
   return (
     <div>
       <section id="Nosotros">
@@ -62,7 +62,7 @@ export default async function About() {
           </div>
         </div>
         <CarouselProducts
-          products={docs.slice(0, 6)}
+          products={products.slice(0, 6)}
           title="Te puede interesar "
         />
       </section>

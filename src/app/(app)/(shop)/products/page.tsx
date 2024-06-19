@@ -12,7 +12,7 @@ import { logoFont } from "@/config/fonts";
 import { fetchProducts } from "@/app/(payload)/utilities/payloadQueries";
 
 export default async function ProductsPage() {
-  const { docs } = await fetchProducts();
+  const products = await fetchProducts();
   return (
     <div>
       <div className="mx-auto px-6 sm:px-14 max-w-[1200px] pt-4 ">
@@ -35,7 +35,7 @@ export default async function ProductsPage() {
         >
           Nuestro Catálogo
         </h1>
-        <ProductGrid products={docs} />
+        <ProductGrid products={products} />
       </div>
     </div>
   );
