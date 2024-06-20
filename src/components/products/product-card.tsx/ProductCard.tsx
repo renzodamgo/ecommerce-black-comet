@@ -13,10 +13,10 @@ type Props = {
 export const ProductCard = ({ product }: Props) => {
   return (
     <div className="product-card rounded-2xl border border-white overflow-hidden flex flex-col h-[500px] md:h-[470px] transition duration-300 ease-in-out transform hover:scale-[102%]">
-      <div className="overflow-hidden  bg-black ire">
+      <div className="overflow-hidden bg-black">
         <Link href={`/product/${product.slug}`}>
           <Image
-            className="  mx-auto h-full  rounded-2xl shadow-inner  "
+            className="rounded-2xl shadow-inner object-cover object-[50%_30%] md:object-[50%_20%] w-full h-full"
             src={(product.image as Media)?.url || ""}
             alt={product.name}
             width={400}
