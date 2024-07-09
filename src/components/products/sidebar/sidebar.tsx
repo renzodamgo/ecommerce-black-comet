@@ -18,14 +18,14 @@ export const Sidebar = () => {
     right: 0,
     height: "100vh",
     backgroundColor: "rgba(0,0,0,0.7)",
-    backdropFilter: "blur(5px)",
+    backdropFilter: "blur(10px)",
     zIndex: 40,
   };
 
   return (
     <div
       style={sidebarStyle}
-      className="backdrop-blur-lg backdrop-brightness-[30%] touch-none"
+      className="backdrop-blur-lg backdrop-brightness-[80%] touch-none"
     >
       <div className="px-6 pt-20">
         <button onClick={toggle} className="p-8 absolute top right-0">
