@@ -12,7 +12,7 @@ type Props = {
 
 export const ProductCard = ({ product }: Props) => {
   return (
-    <div className="product-card rounded-2xl border border-white overflow-hidden flex flex-col h-[500px] md:h-[470px] transition duration-300 ease-in-out transform hover:scale-[102%]">
+    <div className="product-card rounded-2xl border border-white overflow-hidden flex flex-col md:h-[470px] transition duration-300 ease-in-out transform hover:scale-[102%]">
       <div className="overflow-hidden bg-black">
         <Link href={`/product/${product.slug}`}>
           <Image
@@ -25,7 +25,7 @@ export const ProductCard = ({ product }: Props) => {
         </Link>
       </div>
       <div className="px-6 pb-6 pt-6 md:px-4 md:py-4 flex flex-col justify-between ">
-        <div className="flex justify-between items-start font-semibold pb-2 gap-4 h-14 ">
+        <div className="flex justify-between items-start font-semibold pb-2 gap-4 md:h-14 ">
           <h2 className="line-clamp-2">{product.name}</h2>
           <p>S/{product.price.toFixed(2)}</p>
         </div>
