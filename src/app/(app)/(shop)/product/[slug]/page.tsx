@@ -36,6 +36,7 @@ const fetchPayloadData = async (slug: string) => {
 
   const res = await payload.find({
     collection: "products",
+    limit: 10,
     where: {
       slug: {
         equals: slug,
