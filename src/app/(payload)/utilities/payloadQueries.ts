@@ -13,6 +13,16 @@ export const fetchProducts = async (limit?: number, page?: number) => {
   return data.docs as Product[];
 };
 
+export const fetchAllProducts = async () => {
+  const payload = await getPayloadHMR({ config: configPromise });
+
+  const data = await payload.find({
+    collection: "products",
+    pagination: false,
+  });
+  return data.docs as Product[];
+};
+
 export const getTotalPages = async (limit?: number) => {
   const payload = await getPayloadHMR({ config: configPromise });
 
