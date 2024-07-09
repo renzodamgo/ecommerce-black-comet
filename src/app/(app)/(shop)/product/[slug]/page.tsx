@@ -220,7 +220,10 @@ export default async function ProductPage({ params }: Props) {
 
 export async function generateStaticParams() {
   const products = await fetchProducts();
-
+  const test = products.map((product: Product) => ({
+    slug: product.slug,
+  }));
+  console.log(test);
   return products.map((product: Product) => ({
     slug: product.slug,
   }));
