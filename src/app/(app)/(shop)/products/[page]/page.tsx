@@ -34,7 +34,7 @@ export default async function ProductsPage({ params }: Props) {
   const page = params.page;
   const products = await fetchProducts(12, Number(page));
   const totalPages = await getTotalPages(12);
-  console.log(totalPages);
+  // console.log(totalPages);
   return (
     <div>
       <div className="mx-auto px-6 sm:px-14 max-w-[1200px] pt-4 ">
