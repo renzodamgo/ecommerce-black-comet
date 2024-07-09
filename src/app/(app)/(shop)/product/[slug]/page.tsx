@@ -181,7 +181,7 @@ export default async function ProductPage({ params }: Props) {
                       Altura: {product?.height} mm
                     </p>
                     <p className="pt-2 text-muted-foreground text-base">
-                      Ancho de base: {product?.height} mm
+                      Ancho de base: {product?.width} mm
                     </p>
                     <p className="pt-2 text-muted-foreground text-base">
                       Escala: {product?.scale || 0} mm

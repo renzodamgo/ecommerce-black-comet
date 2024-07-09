@@ -32,7 +32,7 @@ export const Media: S3UploadCollectionConfig = {
       },
       hooks: {
         afterRead: [
-          ({ data: doc }) =>
+          ({ data: doc }: { data: any }) =>
             `https://blackcomet-storage.s3.us-east-2.amazonaws.com/images/${doc?.filename}`,
         ],
       },

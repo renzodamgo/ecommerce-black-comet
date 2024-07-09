@@ -1,9 +1,9 @@
-import { CollectionConfig, FieldHook } from "payload/types";
 import {
   HTMLConverterFeature,
   lexicalEditor,
   lexicalHTML,
 } from "@payloadcms/richtext-lexical";
+import { CollectionConfig, FieldHook } from "payload";
 const formatSlug: FieldHook = async ({ value, data }) => {
   // return formatted version of title if exists, else return unmodified value
   return data?.name?.replace(/ /g, "-").toLowerCase() ?? value;

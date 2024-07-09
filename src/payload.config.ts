@@ -2,7 +2,6 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 // import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
-import { buildConfig } from "payload/config";
 // import sharp from 'sharp'
 import { fileURLToPath } from "url";
 
@@ -12,6 +11,7 @@ import { Media } from "./collections/Media";
 import { Collections } from "./collections/Collection";
 import s3Upload from "payload-s3-upload";
 import { S3Client } from "@aws-sdk/client-s3";
+import { buildConfig } from "payload";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
